@@ -1,5 +1,6 @@
 package com.mrcrayfish.vehicle;
 
+import com.mrcrayfish.framework_embedded.network.Network;
 import com.mrcrayfish.vehicle.client.ClientHandler;
 import com.mrcrayfish.vehicle.client.model.ComponentManager;
 import com.mrcrayfish.vehicle.client.model.VehicleModels;
@@ -35,6 +36,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
@@ -48,6 +50,7 @@ import org.jetbrains.annotations.NotNull;
 public class VehicleMod
 {
     public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
+    private static boolean gameLoaded = false;
     public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab(Reference.MOD_ID)
     {
         @Override
@@ -75,6 +78,7 @@ public class VehicleMod
         eventBus.addListener(this::onCommonSetup);
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onGatherData);
+        eventBus.addListener(this::onLoadComplete);
         MinecraftForge.EVENT_BUS.register(new CommonEvents());
         MinecraftForge.EVENT_BUS.register(new ModCommands());
         MinecraftForge.EVENT_BUS.register(FluidNetworkHandler.instance());
@@ -90,6 +94,7 @@ public class VehicleMod
     private void onCommonSetup(FMLCommonSetupEvent event)
     {
         RecipeTypes.init();
+        // Network.init();
         VehicleProperties.loadDefaultProperties();
         PacketHandler.init();
         HeldVehicleDataHandler.register();
@@ -110,5 +115,13 @@ public class VehicleMod
         generator.addProvider(new LootTableGen(generator));
         generator.addProvider(new RecipeGen(generator));
         generator.addProvider(new VehiclePropertiesGen(generator));
+    }
+    private void onLoadComplete(FMLLoadCompleteEvent event)
+    {
+        gameLoaded = true;
+    }
+    public static boolean isGameLoaded()
+    {
+        return gameLoaded;
     }
 }

@@ -1,12 +1,12 @@
 package com.mrcrayfish.framework_embedded.network;
 
-import com.mrcrayfish.framework_embedded.Framework;
 import com.mrcrayfish.framework_embedded.Reference;
 import com.mrcrayfish.framework_embedded.api.data.login.ILoginData;
 import com.mrcrayfish.framework_embedded.api.network.FrameworkChannelBuilder;
 import com.mrcrayfish.framework_embedded.network.message.handshake.S2CLoginData;
 import com.mrcrayfish.framework_embedded.network.message.handshake.S2CSyncedEntityData;
 import com.mrcrayfish.framework_embedded.network.message.play.S2CUpdateEntityData;
+import com.mrcrayfish.vehicle.VehicleMod;
 import io.netty.buffer.Unpooled;
 import io.netty.util.AttributeKey;
 import net.minecraft.network.FriendlyByteBuf;
@@ -56,7 +56,7 @@ public class Network
 
     public synchronized static void registerLoginData(ResourceLocation id, Supplier<? extends ILoginData> data)
     {
-        if(Framework.isGameLoaded())
+        if(VehicleMod.isGameLoaded())
         {
             throw new IllegalStateException(String.format("Tried to register login data '%s' after game initialization", id.toString()));
         }

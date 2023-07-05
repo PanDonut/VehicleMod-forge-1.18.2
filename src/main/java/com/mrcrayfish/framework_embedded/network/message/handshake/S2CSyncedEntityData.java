@@ -1,6 +1,5 @@
 package com.mrcrayfish.framework_embedded.network.message.handshake;
 
-import com.mrcrayfish.framework_embedded.Framework;
 import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
 import com.mrcrayfish.framework_embedded.api.network.HandshakeMessage;
 import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
@@ -64,7 +63,6 @@ public class S2CSyncedEntityData extends HandshakeMessage<S2CSyncedEntityData>
     @Override
     public void handle(S2CSyncedEntityData message, Supplier<NetworkEvent.Context> supplier)
     {
-        Framework.LOGGER.debug(HANDSHAKE, "Received synced key mappings from server");
         CountDownLatch block = new CountDownLatch(1);
         supplier.get().enqueueWork(() ->
         {

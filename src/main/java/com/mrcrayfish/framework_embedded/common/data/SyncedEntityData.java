@@ -1,7 +1,6 @@
 package com.mrcrayfish.framework_embedded.common.data;
 
 import com.google.common.collect.ImmutableSet;
-import com.mrcrayfish.framework_embedded.Framework;
 import com.mrcrayfish.framework_embedded.Reference;
 import com.mrcrayfish.framework_embedded.api.data.sync.SyncedClassKey;
 import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
@@ -130,10 +129,6 @@ public class SyncedEntityData
     {
         ResourceLocation keyId = dataKey.id();
         SyncedClassKey<E> classKey = dataKey.classKey();
-        if(Framework.isGameLoaded())
-        {
-            throw new IllegalStateException(String.format("Tried to register synced data key %s for %s after game initialization", keyId, classKey.id()));
-        }
         if(this.registeredDataKeys.contains(dataKey))
         {
             throw new IllegalArgumentException(String.format("The synced data key %s for %s is already registered", keyId, classKey.id()));
@@ -144,7 +139,6 @@ public class SyncedEntityData
         int nextId = this.nextIdTracker.getAndIncrement();
         this.internalIds.put(dataKey, nextId);
         this.syncedIdToKey.put(nextId, dataKey);
-        Framework.LOGGER.info(SYNCED_ENTITY_DATA_MARKER, "Registered synced data key {} for {}", dataKey.id(), classKey.id());
     }
 
     /**
@@ -159,7 +153,6 @@ public class SyncedEntityData
         if(!this.registeredDataKeys.contains(key))
         {
             String keys = this.registeredDataKeys.stream().map(k -> k.pairKey().toString()).collect(Collectors.joining(",", "[", "]"));
-            Framework.LOGGER.info(SYNCED_ENTITY_DATA_MARKER, "Registered keys before throwing exception: {}", keys);
             throw new IllegalArgumentException(String.format("The synced data key %s for %s is not registered!", key.id(), key.classKey().id()));
         }
         DataHolder holder = this.getDataHolder(entity);
@@ -185,7 +178,6 @@ public class SyncedEntityData
         if(!this.registeredDataKeys.contains(key))
         {
             String keys = this.registeredDataKeys.stream().map(k -> k.pairKey().toString()).collect(Collectors.joining(",", "[", "]"));
-            Framework.LOGGER.info(SYNCED_ENTITY_DATA_MARKER, "Registered keys before throwing exception: {}", keys);
             throw new IllegalArgumentException(String.format("The synced data key %s for %s is not registered!", key.id(), key.classKey().id()));
         }
         DataHolder holder = this.getDataHolder(entity);
@@ -391,7 +383,6 @@ public class SyncedEntityData
         if(!missingKeys.isEmpty())
         {
             String keys = missingKeys.stream().map(Object::toString).collect(Collectors.joining(",", "[", "]"));
-            Framework.LOGGER.info(SYNCED_ENTITY_DATA_MARKER, "Received unknown synced keys: {}", keys);
         }
 
         return missingKeys.isEmpty();

@@ -1,6 +1,5 @@
 package com.mrcrayfish.framework_embedded.api.network;
 
-import com.mrcrayfish.framework_embedded.Framework;
 import com.mrcrayfish.framework_embedded.network.message.IMessage;
 import com.mrcrayfish.framework_embedded.network.message.handshake.LoginIndexHolder;
 import net.minecraft.network.FriendlyByteBuf;
@@ -31,7 +30,6 @@ public abstract class HandshakeMessage<T> extends LoginIndexHolder implements IM
         @Override
         public void handle(Acknowledge message, Supplier<NetworkEvent.Context> c)
         {
-            Framework.LOGGER.debug(HANDSHAKE, "Received acknowledgement from client");
             c.get().setPacketHandled(true);
         }
     }

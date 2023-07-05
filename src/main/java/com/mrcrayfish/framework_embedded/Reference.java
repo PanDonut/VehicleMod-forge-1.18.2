@@ -5,5 +5,5 @@ package com.mrcrayfish.framework_embedded;
  */
 public class Reference
 {
-    public static final String MOD_ID = "framework";
+    public static final String MOD_ID = "vehicle";
 }
