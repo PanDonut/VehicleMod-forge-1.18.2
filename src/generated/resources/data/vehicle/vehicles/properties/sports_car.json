@@ -1,0 +1,245 @@
+{
+  "canBePainted": true,
+  "canChangeWheels": true,
+  "wheels": [
+    {
+      "side": "left",
+      "axle": "front",
+      "offset": [
+        12.0,
+        3.0,
+        20.0
+      ],
+      "scale": [
+        1.0,
+        1.4,
+        1.4
+      ]
+    },
+    {
+      "side": "right",
+      "axle": "front",
+      "offset": [
+        12.0,
+        3.0,
+        20.0
+      ],
+      "scale": [
+        1.0,
+        1.4,
+        1.4
+      ]
+    },
+    {
+      "side": "left",
+      "axle": "rear",
+      "offset": [
+        12.0,
+        3.0,
+        -19.0
+      ],
+      "scale": [
+        1.0,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "rear",
+      "offset": [
+        12.0,
+        3.0,
+        -19.0
+      ],
+      "scale": [
+        1.0,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    }
+  ],
+  "seats": [
+    {
+      "position": [
+        7.0,
+        -2.0,
+        -5.0
+      ],
+      "driver": true
+    },
+    {
+      "position": [
+        -7.0,
+        -2.0,
+        -5.0
+      ]
+    }
+  ],
+  "camera": {
+    "distance": 5.0
+  },
+  "extended": {
+    "vehicle:powered": {
+      "energyCapacity": 20000.0,
+      "engineType": "vehicle:large_motor",
+      "enginePower": 20.0,
+      "minEnginePitch": 0.9,
+      "maxEnginePitch": 1.5,
+      "renderEngine": true,
+      "engineTransform": {
+        "translate": [
+          0.0,
+          3.01,
+          19.0
+        ],
+        "scale": 0.825
+      },
+      "fuelFillerTransform": {
+        "translate": [
+          -10.0,
+          6.5,
+          -14.0
+        ],
+        "rotation": [
+          0.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 0.4
+      },
+      "ignitionTransform": {
+        "translate": [
+          -5.0,
+          4.5,
+          6.5
+        ],
+        "rotation": [
+          -45.0,
+          0.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "frontAxleOffset": 20.0,
+      "rearAxleOffset": -19.0,
+      "engineSound": "vehicle:entity.sports_car.engine"
+    }
+  },
+  "cosmetics": [
+    {
+      "id": "vehicle:left_door",
+      "offset": [
+        15.0,
+        1.0,
+        10.0
+      ],
+      "actions": [
+        {
+          "id": "vehicle:openable",
+          "rotation": {
+            "axis": "y",
+            "angle": -75.0,
+            "animationLength": 12
+          },
+          "sound": {
+            "open": "vehicle:entity.vehicle.door.open",
+            "close": "vehicle:entity.vehicle.door.close"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vehicle:spoiler",
+      "offset": [
+        0.0,
+        15.5,
+        -23.5
+      ],
+      "actions": [
+        {
+          "id": "vehicle:openable",
+          "rotation": {
+            "axis": "x",
+            "angle": 90.0,
+            "animationLength": 12
+          },
+          "sound": {
+            "open": "vehicle:entity.vehicle.door.open",
+            "close": "vehicle:entity.vehicle.door.close"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vehicle:dashboard",
+      "offset": [
+        0.0,
+        14.0,
+        12.0
+      ]
+    },
+    {
+      "id": "vehicle:right_door",
+      "offset": [
+        -15.0,
+        1.0,
+        10.0
+      ],
+      "actions": [
+        {
+          "id": "vehicle:openable",
+          "rotation": {
+            "axis": "y",
+            "angle": 90.0,
+            "animationLength": 12
+          },
+          "sound": {
+            "open": "vehicle:entity.vehicle.door.open",
+            "close": "vehicle:entity.vehicle.door.close"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vehicle:roof",
+      "offset": [
+        0.0,
+        14.0,
+        0.0
+      ]
+    },
+    {
+      "id": "vehicle:seat",
+      "offset": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "vehicle:hood",
+      "offset": [
+        0.0,
+        13.5,
+        13.5
+      ],
+      "actions": [
+        {
+          "id": "vehicle:openable",
+          "rotation": {
+            "axis": "x",
+            "angle": -60.0,
+            "animationLength": 12
+          },
+          "sound": {
+            "open": "vehicle:entity.vehicle.hood.open",
+            "close": "vehicle:entity.vehicle.hood.close"
+          }
+        }
+      ]
+    }
+  ]
+}

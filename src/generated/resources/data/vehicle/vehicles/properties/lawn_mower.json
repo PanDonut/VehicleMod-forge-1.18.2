@@ -1,0 +1,136 @@
+{
+  "canBePainted": true,
+  "canChangeWheels": true,
+  "offsetToGround": -2.0,
+  "heldOffset": [
+    12.0,
+    -1.5,
+    0.0
+  ],
+  "trailerOffset": [
+    0.0,
+    -0.01,
+    -1.0
+  ],
+  "canTowTrailers": true,
+  "towBarOffset": [
+    0.0,
+    0.0,
+    -16.0
+  ],
+  "displayTransform": {
+    "scale": 1.5
+  },
+  "bodyTransform": {
+    "scale": 1.25
+  },
+  "wheels": [
+    {
+      "side": "left",
+      "axle": "front",
+      "offset": [
+        6.0,
+        0.0,
+        13.5
+      ],
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "autoScale": true
+    },
+    {
+      "side": "right",
+      "axle": "front",
+      "offset": [
+        6.0,
+        0.0,
+        13.5
+      ],
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "autoScale": true
+    },
+    {
+      "side": "left",
+      "axle": "rear",
+      "offset": [
+        5.0,
+        0.8,
+        -10.7
+      ],
+      "scale": [
+        0.97,
+        0.97,
+        0.97
+      ],
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "rear",
+      "offset": [
+        5.0,
+        0.8,
+        -10.7
+      ],
+      "scale": [
+        0.97,
+        0.97,
+        0.97
+      ],
+      "particles": true
+    }
+  ],
+  "seats": [
+    {
+      "position": [
+        0.0,
+        7.0,
+        -9.0
+      ],
+      "driver": true
+    }
+  ],
+  "extended": {
+    "vehicle:powered": {
+      "energyCapacity": 5000.0,
+      "engineType": "vehicle:small_motor",
+      "enginePower": 8.0,
+      "fuelFillerTransform": {
+        "translate": [
+          -4.5,
+          10.0,
+          4.5
+        ],
+        "rotation": [
+          0.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "ignitionTransform": {
+        "translate": [
+          -5.0,
+          4.5,
+          6.5
+        ],
+        "rotation": [
+          -45.0,
+          0.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "canLockWithKey": false,
+      "frontAxleOffset": 13.5,
+      "rearAxleOffset": -10.7,
+      "engineSound": "vehicle:entity.quad_bike.engine"
+    }
+  }
+}

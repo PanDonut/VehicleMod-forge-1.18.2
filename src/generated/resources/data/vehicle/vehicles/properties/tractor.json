@@ -1,0 +1,148 @@
+{
+  "canBePainted": true,
+  "canChangeWheels": true,
+  "offsetToGround": -3.0,
+  "heldOffset": [
+    0.0,
+    3.5,
+    0.0
+  ],
+  "canTowTrailers": true,
+  "towBarOffset": [
+    0.0,
+    0.0,
+    -24.5
+  ],
+  "displayTransform": {
+    "scale": 1.25
+  },
+  "wheels": [
+    {
+      "side": "left",
+      "axle": "front",
+      "offset": [
+        8.0,
+        0.0,
+        14.0
+      ],
+      "scale": [
+        0.938,
+        0.0,
+        0.0
+      ],
+      "autoScale": true,
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "front",
+      "offset": [
+        8.0,
+        0.0,
+        14.0
+      ],
+      "scale": [
+        0.938,
+        0.0,
+        0.0
+      ],
+      "autoScale": true,
+      "particles": true
+    },
+    {
+      "side": "left",
+      "axle": "rear",
+      "offset": [
+        8.0,
+        5.5,
+        -14.5
+      ],
+      "scale": [
+        1.875,
+        2.8,
+        2.8
+      ],
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "rear",
+      "offset": [
+        8.0,
+        5.5,
+        -14.5
+      ],
+      "scale": [
+        1.875,
+        2.8,
+        2.8
+      ],
+      "particles": true
+    }
+  ],
+  "seats": [
+    {
+      "position": [
+        0.0,
+        9.0,
+        -14.0
+      ],
+      "driver": true
+    }
+  ],
+  "camera": {
+    "distance": 5.0
+  },
+  "extended": {
+    "vehicle:powered": {
+      "engineType": "vehicle:large_motor",
+      "enginePower": 8.0,
+      "minEnginePitch": 0.8,
+      "maxEnginePitch": 1.6,
+      "renderEngine": true,
+      "engineTransform": {
+        "translate": [
+          0.0,
+          6.0,
+          7.5
+        ],
+        "scale": 0.85
+      },
+      "showExhaustFumes": true,
+      "exhaustFumesPosition": [
+        -2.0,
+        32.0,
+        16.0
+      ],
+      "fuelFillerTransform": {
+        "translate": [
+          -6.0,
+          12.0,
+          -0.5
+        ],
+        "rotation": [
+          0.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 0.6
+      },
+      "ignitionTransform": {
+        "translate": [
+          -2.75,
+          12.0,
+          -1.75
+        ],
+        "rotation": [
+          -45.0,
+          0.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "frontAxleOffset": 14.0,
+      "rearAxleOffset": -14.5,
+      "engineSound": "vehicle:entity.tractor.engine"
+    }
+  }
+}

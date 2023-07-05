@@ -1,0 +1,138 @@
+{
+  "canBePainted": true,
+  "displayTransform": {
+    "scale": 0.85
+  },
+  "bodyTransform": {
+    "translate": [
+      0.0,
+      0.0,
+      -8.0
+    ]
+  },
+  "wheels": [
+    {
+      "axle": "front",
+      "offset": [
+        0.0,
+        -0.902,
+        26.827
+      ],
+      "scale": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "autoScale": true
+    },
+    {
+      "offset": [
+        15.5,
+        0.0,
+        -5.5
+      ]
+    },
+    {
+      "offset": [
+        -15.5,
+        0.0,
+        -5.5
+      ]
+    }
+  ],
+  "seats": [
+    {
+      "position": [
+        0.0,
+        6.0,
+        0.0
+      ],
+      "driver": true
+    }
+  ],
+  "camera": {
+    "position": [
+      0.0,
+      2.0,
+      0.0
+    ],
+    "distance": 9.0
+  },
+  "extended": {
+    "vehicle:powered": {
+      "maxSteeringAngle": 25.0,
+      "energyCapacity": 75000.0,
+      "energyConsumptionPerTick": 1.0,
+      "engineType": "vehicle:large_motor",
+      "enginePower": 24.0,
+      "fuelFillerTransform": {
+        "translate": [
+          -4.35,
+          6.0,
+          -6.0
+        ],
+        "rotation": [
+          0.0,
+          -112.5,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "ignitionTransform": {
+        "translate": [
+          0.0,
+          3.75,
+          12.5
+        ],
+        "rotation": [
+          -67.5,
+          0.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "frontAxleOffset": 20.25,
+      "rearAxleOffset": 1.5,
+      "engineSound": "vehicle:entity.sports_plane.engine"
+    },
+    "vehicle:plane": {
+      "flapSensitivity": 0.1,
+      "elevatorSensitivity": 0.075,
+      "maxTurnAngle": 2.0
+    }
+  },
+  "cosmetics": [
+    {
+      "id": "vehicle:wings",
+      "offset": [
+        0.0,
+        20.0,
+        -7.0
+      ]
+    },
+    {
+      "id": "vehicle:propeller",
+      "offset": [
+        0.0,
+        14.0,
+        31.0
+      ],
+      "actions": [
+        {
+          "id": "vehicle:rotate",
+          "source": "propeller",
+          "axis": "z",
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "vehicle:seat",
+      "offset": [
+        0.0,
+        8.0,
+        0.0
+      ]
+    }
+  ]
+}

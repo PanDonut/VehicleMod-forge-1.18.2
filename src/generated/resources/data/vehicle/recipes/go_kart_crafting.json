@@ -1,0 +1,14 @@
+{
+  "type": "vehicle:workstation",
+  "vehicle": "vehicle:go_kart",
+  "materials": [
+    {
+      "tag": "forge:ingots/iron",
+      "count": 48
+    },
+    {
+      "item": "vehicle:panel",
+      "count": 4
+    }
+  ]
+}

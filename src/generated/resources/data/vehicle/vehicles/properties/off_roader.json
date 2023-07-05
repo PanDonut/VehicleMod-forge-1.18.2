@@ -1,0 +1,154 @@
+{
+  "canBePainted": true,
+  "canChangeWheels": true,
+  "offsetToGround": -1.0,
+  "heldOffset": [
+    0.0,
+    3.5,
+    0.0
+  ],
+  "displayTransform": {
+    "translate": [
+      0.0,
+      0.0,
+      0.1
+    ]
+  },
+  "bodyTransform": {
+    "scale": 1.4
+  },
+  "wheels": [
+    {
+      "side": "left",
+      "axle": "front",
+      "offset": [
+        10.0,
+        0.0,
+        14.5
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "front",
+      "offset": [
+        10.0,
+        0.0,
+        14.5
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    },
+    {
+      "side": "left",
+      "axle": "rear",
+      "offset": [
+        10.0,
+        0.0,
+        -14.5
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    },
+    {
+      "side": "right",
+      "axle": "rear",
+      "offset": [
+        10.0,
+        0.0,
+        -14.5
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "particles": true
+    }
+  ],
+  "seats": [
+    {
+      "position": [
+        5.0,
+        4.0,
+        -3.0
+      ],
+      "driver": true
+    },
+    {
+      "position": [
+        -5.0,
+        4.0,
+        -3.0
+      ]
+    },
+    {
+      "position": [
+        5.0,
+        11.5,
+        -14.5
+      ]
+    },
+    {
+      "position": [
+        -5.0,
+        3.5,
+        -18.9
+      ]
+    }
+  ],
+  "camera": {
+    "distance": 6.0
+  },
+  "extended": {
+    "vehicle:powered": {
+      "energyCapacity": 25000.0,
+      "engineType": "vehicle:large_motor",
+      "enginePower": 16.0,
+      "minEnginePitch": 0.8,
+      "maxEnginePitch": 1.6,
+      "fuelFillerTransform": {
+        "translate": [
+          -12.0,
+          10.5,
+          -6.5
+        ],
+        "rotation": [
+          0.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "ignitionTransform": {
+        "translate": [
+          0.0,
+          7.0,
+          6.2
+        ],
+        "rotation": [
+          -67.5,
+          0.0,
+          0.0
+        ],
+        "scale": 0.5
+      },
+      "frontAxleOffset": 14.5,
+      "rearAxleOffset": -14.5,
+      "engineSound": "vehicle:entity.jet_ski.engine"
+    }
+  }
+}
