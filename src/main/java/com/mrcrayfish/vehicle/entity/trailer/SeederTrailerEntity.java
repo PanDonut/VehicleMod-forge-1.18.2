@@ -14,9 +14,13 @@ import com.mrcrayfish.vehicle.network.message.MessageSyncStorage;
 import com.mrcrayfish.vehicle.util.InventoryUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,6 +29,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -44,6 +49,10 @@ import java.util.Map;
 public class SeederTrailerEntity extends TrailerEntity implements IStorage
 {
     private static final String INVENTORY_STORAGE_KEY = "Inventory";
+    public static final TagKey<Item> SEEDS = bind("seeds");
+    private static TagKey<Item> bind(String p_203855_) {
+        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(p_203855_));
+    }
 
     private int inventoryTimer;
     private StorageInventory inventory;
@@ -103,12 +112,30 @@ public class SeederTrailerEntity extends TrailerEntity implements IStorage
             if(seed.isEmpty() && this.getPullingEntity() instanceof StorageTrailerEntity)
             {
                 seed = this.getSeedFromStorage((StorageTrailerEntity) this.getPullingEntity());
+                {
+                    Entity _ent = this;
+                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
+                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = get from trailer"));
+                }
             }
             if(this.isSeed(seed))
             {
+                {
+                    Entity _ent = this;
+                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
+                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = true"));
+                }
                 Block seedBlock = ((BlockItem) seed.getItem()).getBlock();
                 this.level.setBlockAndUpdate(pos, seedBlock.defaultBlockState());
                 seed.shrink(1);
+            }
+            else
+            {
+                {
+                    Entity _ent = this;
+                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
+                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = false / else"));
+                }
             }
         }
     }
@@ -128,7 +155,7 @@ public class SeederTrailerEntity extends TrailerEntity implements IStorage
 
     private boolean isSeed(ItemStack stack)
     {
-        return !stack.isEmpty() && stack.getItem() instanceof BlockItem && ((BlockItem) stack.getItem()).getBlock() instanceof FarmBlock;
+        return stack.is(Tags.Items.SEEDS) || stack.is(Tags.Items.SEEDS_BEETROOT) || stack.is(Tags.Items.SEEDS_MELON) || stack.is(Tags.Items.SEEDS_PUMPKIN) || stack.is(Tags.Items.SEEDS_WHEAT);
     }
 
     private ItemStack getSeedFromStorage(StorageTrailerEntity storageTrailer)
