@@ -1,4 +1,4 @@
-package com.mrcrayfish.framework.client.model;
+package com.mrcrayfish.framework_embedded.client.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
