@@ -1,9 +1,9 @@
-package com.mrcrayfish.framework.api;
+package com.mrcrayfish.framework_embedded.api;
 
-import com.mrcrayfish.framework.api.data.login.ILoginData;
-import com.mrcrayfish.framework.api.data.sync.SyncedDataKey;
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
-import com.mrcrayfish.framework.network.Network;
+import com.mrcrayfish.framework_embedded.api.data.login.ILoginData;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.Network;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 

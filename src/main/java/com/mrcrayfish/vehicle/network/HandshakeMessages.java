@@ -1,7 +1,7 @@
 package com.mrcrayfish.vehicle.network;
 
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.framework.api.network.HandshakeMessage;
+import com.mrcrayfish.framework_embedded.api.network.HandshakeMessage;
 import com.mrcrayfish.vehicle.entity.properties.VehicleProperties;
 import com.mrcrayfish.vehicle.entity.properties.VehiclePropertiesDataLoader;
 import net.minecraft.network.FriendlyByteBuf;

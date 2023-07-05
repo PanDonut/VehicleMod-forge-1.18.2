@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.common.data;
 
-import com.mrcrayfish.framework.api.data.sync.IDataSerializer;
+import com.mrcrayfish.framework_embedded.api.data.sync.IDataSerializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;

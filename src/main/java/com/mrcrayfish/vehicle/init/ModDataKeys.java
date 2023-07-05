@@ -1,9 +1,9 @@
 package com.mrcrayfish.vehicle.init;
 
-import com.mrcrayfish.framework.api.data.sync.Serializers;
-import com.mrcrayfish.framework.api.data.sync.SyncedClassKey;
-import com.mrcrayfish.framework.api.data.sync.SyncedDataKey;
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.api.data.sync.Serializers;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedClassKey;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.vehicle.Reference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

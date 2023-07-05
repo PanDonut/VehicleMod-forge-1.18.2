@@ -1,12 +1,12 @@
-package com.mrcrayfish.framework.network;
+package com.mrcrayfish.framework_embedded.network;
 
-import com.mrcrayfish.framework.Framework;
-import com.mrcrayfish.framework.Reference;
-import com.mrcrayfish.framework.api.data.login.ILoginData;
-import com.mrcrayfish.framework.api.network.FrameworkChannelBuilder;
-import com.mrcrayfish.framework.network.message.handshake.S2CLoginData;
-import com.mrcrayfish.framework.network.message.handshake.S2CSyncedEntityData;
-import com.mrcrayfish.framework.network.message.play.S2CUpdateEntityData;
+import com.mrcrayfish.framework_embedded.Framework;
+import com.mrcrayfish.framework_embedded.Reference;
+import com.mrcrayfish.framework_embedded.api.data.login.ILoginData;
+import com.mrcrayfish.framework_embedded.api.network.FrameworkChannelBuilder;
+import com.mrcrayfish.framework_embedded.network.message.handshake.S2CLoginData;
+import com.mrcrayfish.framework_embedded.network.message.handshake.S2CSyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.message.play.S2CUpdateEntityData;
 import io.netty.buffer.Unpooled;
 import io.netty.util.AttributeKey;
 import net.minecraft.network.FriendlyByteBuf;

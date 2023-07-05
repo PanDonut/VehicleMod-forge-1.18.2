@@ -1,6 +1,6 @@
-package com.mrcrayfish.framework.api.data.login;
+package com.mrcrayfish.framework_embedded.api.data.login;
 
-import com.mrcrayfish.framework.api.FrameworkAPI;
+import com.mrcrayfish.framework_embedded.api.FrameworkAPI;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 

@@ -1,6 +1,6 @@
-package com.mrcrayfish.framework.api.data.sync;
+package com.mrcrayfish.framework_embedded.api.data.sync;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;

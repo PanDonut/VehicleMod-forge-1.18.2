@@ -1,7 +1,7 @@
 package com.mrcrayfish.vehicle.common;
 
 import com.google.common.collect.ImmutableList;
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.vehicle.Config;
 import com.mrcrayfish.vehicle.Reference;
 import com.mrcrayfish.vehicle.common.entity.HeldVehicleDataHandler;

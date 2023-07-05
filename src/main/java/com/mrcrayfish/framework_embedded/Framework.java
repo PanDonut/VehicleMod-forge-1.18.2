@@ -1,7 +1,7 @@
-package com.mrcrayfish.framework;
+package com.mrcrayfish.framework_embedded;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
-import com.mrcrayfish.framework.network.Network;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.Network;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;

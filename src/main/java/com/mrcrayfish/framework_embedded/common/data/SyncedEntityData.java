@@ -1,13 +1,13 @@
-package com.mrcrayfish.framework.common.data;
+package com.mrcrayfish.framework_embedded.common.data;
 
 import com.google.common.collect.ImmutableSet;
-import com.mrcrayfish.framework.Framework;
-import com.mrcrayfish.framework.Reference;
-import com.mrcrayfish.framework.api.data.sync.SyncedClassKey;
-import com.mrcrayfish.framework.api.data.sync.SyncedDataKey;
-import com.mrcrayfish.framework.network.Network;
-import com.mrcrayfish.framework.network.message.handshake.S2CSyncedEntityData;
-import com.mrcrayfish.framework.network.message.play.S2CUpdateEntityData;
+import com.mrcrayfish.framework_embedded.Framework;
+import com.mrcrayfish.framework_embedded.Reference;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedClassKey;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
+import com.mrcrayfish.framework_embedded.network.Network;
+import com.mrcrayfish.framework_embedded.network.message.handshake.S2CSyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.message.play.S2CUpdateEntityData;
 import it.unimi.dsi.fastutil.ints.Int2ReferenceMap;
 import it.unimi.dsi.fastutil.ints.Int2ReferenceOpenHashMap;
 import it.unimi.dsi.fastutil.objects.*;

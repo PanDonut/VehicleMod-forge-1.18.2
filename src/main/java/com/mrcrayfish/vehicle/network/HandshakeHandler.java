@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.network;
 
-import com.mrcrayfish.framework.api.network.HandshakeMessage;
+import com.mrcrayfish.framework_embedded.api.network.HandshakeMessage;
 import com.mrcrayfish.vehicle.VehicleMod;
 import com.mrcrayfish.vehicle.entity.properties.VehicleProperties;
 import net.minecraft.network.chat.TextComponent;

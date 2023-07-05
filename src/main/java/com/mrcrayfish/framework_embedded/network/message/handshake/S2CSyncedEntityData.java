@@ -1,10 +1,10 @@
-package com.mrcrayfish.framework.network.message.handshake;
+package com.mrcrayfish.framework_embedded.network.message.handshake;
 
-import com.mrcrayfish.framework.Framework;
-import com.mrcrayfish.framework.api.data.sync.SyncedDataKey;
-import com.mrcrayfish.framework.api.network.HandshakeMessage;
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
-import com.mrcrayfish.framework.network.Network;
+import com.mrcrayfish.framework_embedded.Framework;
+import com.mrcrayfish.framework_embedded.api.data.sync.SyncedDataKey;
+import com.mrcrayfish.framework_embedded.api.network.HandshakeMessage;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.Network;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;

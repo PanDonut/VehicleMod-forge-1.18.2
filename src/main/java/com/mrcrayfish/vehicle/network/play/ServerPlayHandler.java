@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.network.play;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.vehicle.Config;
 import com.mrcrayfish.vehicle.VehicleMod;
 import com.mrcrayfish.vehicle.block.VehicleCrateBlock;

@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.client.handler;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.obfuscate.client.event.RenderItemEvent;
 import com.mrcrayfish.vehicle.init.ModDataKeys;
 import com.mrcrayfish.vehicle.init.ModSounds;

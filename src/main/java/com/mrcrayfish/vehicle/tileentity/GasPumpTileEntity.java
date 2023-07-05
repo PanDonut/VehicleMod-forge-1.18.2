@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.tileentity;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.vehicle.Config;
 import com.mrcrayfish.vehicle.client.util.HermiteInterpolator;
 import com.mrcrayfish.vehicle.init.ModDataKeys;

@@ -1,8 +1,8 @@
-package com.mrcrayfish.framework.network.message.play;
+package com.mrcrayfish.framework_embedded.network.message.play;
 
-import com.mrcrayfish.framework.api.network.PlayMessage;
-import com.mrcrayfish.framework.client.multiplayer.ClientPlayHandler;
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.api.network.PlayMessage;
+import com.mrcrayfish.framework_embedded.client.multiplayer.ClientPlayHandler;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 

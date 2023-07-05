@@ -1,7 +1,7 @@
-package com.mrcrayfish.framework.client.multiplayer;
+package com.mrcrayfish.framework_embedded.client.multiplayer;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
-import com.mrcrayfish.framework.network.message.play.S2CUpdateEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.network.message.play.S2CUpdateEntityData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;

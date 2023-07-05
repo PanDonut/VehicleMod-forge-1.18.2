@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.network;
 
-import com.mrcrayfish.framework.api.network.FrameworkChannelBuilder;
+import com.mrcrayfish.framework_embedded.api.network.FrameworkChannelBuilder;
 import com.mrcrayfish.vehicle.Reference;
 import com.mrcrayfish.vehicle.network.message.*;
 import net.minecraftforge.network.NetworkDirection;

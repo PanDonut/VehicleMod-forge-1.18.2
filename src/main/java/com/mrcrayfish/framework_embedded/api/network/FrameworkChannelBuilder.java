@@ -1,6 +1,6 @@
-package com.mrcrayfish.framework.api.network;
+package com.mrcrayfish.framework_embedded.api.network;
 
-import com.mrcrayfish.framework.network.message.handshake.LoginIndexHolder;
+import com.mrcrayfish.framework_embedded.network.message.handshake.LoginIndexHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.HandshakeHandler;
 import net.minecraftforge.network.NetworkDirection;

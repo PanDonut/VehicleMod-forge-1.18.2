@@ -1,4 +1,4 @@
-package com.mrcrayfish.framework;
+package com.mrcrayfish.framework_embedded;
 
 /**
  * Author: MrCrayfish

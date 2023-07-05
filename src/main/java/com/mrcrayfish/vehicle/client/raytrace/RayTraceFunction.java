@@ -1,6 +1,6 @@
 package com.mrcrayfish.vehicle.client.raytrace;
 
-import com.mrcrayfish.framework.common.data.SyncedEntityData;
+import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
 import com.mrcrayfish.vehicle.Config;
 import com.mrcrayfish.vehicle.client.handler.ControllerHandler;
 import com.mrcrayfish.vehicle.entity.PoweredVehicleEntity;

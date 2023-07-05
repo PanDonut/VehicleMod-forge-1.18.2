@@ -1,8 +1,8 @@
-package com.mrcrayfish.framework.api.network;
+package com.mrcrayfish.framework_embedded.api.network;
 
-import com.mrcrayfish.framework.Framework;
-import com.mrcrayfish.framework.network.message.IMessage;
-import com.mrcrayfish.framework.network.message.handshake.LoginIndexHolder;
+import com.mrcrayfish.framework_embedded.Framework;
+import com.mrcrayfish.framework_embedded.network.message.IMessage;
+import com.mrcrayfish.framework_embedded.network.message.handshake.LoginIndexHolder;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 import org.apache.logging.log4j.Marker;

@@ -1,4 +1,4 @@
-package com.mrcrayfish.framework.network.message.handshake;
+package com.mrcrayfish.framework_embedded.network.message.handshake;
 
 import java.util.function.IntSupplier;
 
