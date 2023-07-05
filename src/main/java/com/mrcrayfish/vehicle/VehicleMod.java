@@ -94,7 +94,7 @@ public class VehicleMod
     private void onCommonSetup(FMLCommonSetupEvent event)
     {
         RecipeTypes.init();
-        // Network.init();
+        // Network.init(); <-- don't touch that darn thing, increases crash rate to 99% for some reason
         VehicleProperties.loadDefaultProperties();
         PacketHandler.init();
         HeldVehicleDataHandler.register();
