@@ -36,24 +36,19 @@ public class LayerHeldVehicle extends RenderLayer<AbstractClientPlayer, PlayerMo
     @Override
     public void render(PoseStack matrices, MultiBufferSource buffers, int light, AbstractClientPlayer player, float v, float v1, float delta, float v3, float v4, float v5)
     {
-        CompoundTag tagCompound = HeldVehicleDataHandler.getHeldVehicle(player);
-        if(!tagCompound.isEmpty())
+        VehicleEntity vehicle = HeldVehicleDataHandler.getHeldVehicle(player);
+        if(vehicle != null)
         {
             if(this.cachedVehicle == null)
             {
-                Optional<EntityType<?>> optional = EntityType.byString(tagCompound.getString("id"));
-                if(optional.isPresent())
-                {
-                    EntityType<?> entityType = optional.get();
+                    EntityType<?> entityType = vehicle.getType();
                     Entity entity = entityType.create(player.level);
                     if(entity instanceof VehicleEntity)
                     {
-                        entity.load(tagCompound);
                         this.vehicle = (VehicleEntity) entity;
                         this.width = entity.getBbWidth();
                         this.cachedVehicle = new CachedVehicle(this.vehicle);
                     }
-                }
             }
             if(this.cachedVehicle != null)
             {

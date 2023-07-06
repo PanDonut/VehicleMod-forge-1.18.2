@@ -100,7 +100,7 @@ public class ClientPlayHandler
             Entity entity = world.getEntity(message.getEntityId());
             if(entity instanceof Player)
             {
-                HeldVehicleDataHandler.setHeldVehicle((Player) entity, message.getVehicleTag());
+               // HeldVehicleDataHandler.setHeldVehicle((Player) entity, world.getEntity(message.getVehicleTag()));
             }
         }
     }

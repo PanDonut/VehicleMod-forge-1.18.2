@@ -409,19 +409,13 @@ public class ServerPlayHandler
         if(!HeldVehicleDataHandler.isHoldingVehicle(player))
             return;
 
-        CompoundTag heldTag = HeldVehicleDataHandler.getHeldVehicle(player);
-        Optional<EntityType<?>> optional = EntityType.byString(heldTag.getString("id"));
-        if(optional.isEmpty())
-            return;
-
-        EntityType<?> entityType = optional.get();
+        VehicleEntity vehicle = HeldVehicleDataHandler.getHeldVehicle(player);
+        EntityType<?> entityType = vehicle.getType();
         Entity entity = entityType.create(player.level);
         if(entity instanceof VehicleEntity)
         {
-            entity.load(heldTag);
-
             //Updates the player capability
-            HeldVehicleDataHandler.setHeldVehicle(player, new CompoundTag());
+            vehicle.stopRiding();
 
             //Sets the positions and spawns the entity
             float rotation = (player.getYHeadRot() + 90F) % 360.0F;

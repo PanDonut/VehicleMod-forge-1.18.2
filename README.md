@@ -3,6 +3,7 @@
 [![Original mod](https://img.shields.io/badge/Check%20out%20the%20original!-red?style=flat-square&labelColor=%20&label=1.16.5)](https://github.com/MrCrayfish/MrCrayfishVehicleMod)
 ![Bugfix](https://img.shields.io/badge/vehiclemodfork-fixed-blue?style=flat-square&label=seeder)
 ![Bugfix](https://img.shields.io/badge/vehiclemodfork-fixed-blue?style=flat-square&label=sounds)
+![Bugfix](https://img.shields.io/badge/vehiclemodfork-fixed-blue?style=flat-square&label=framework%200.2.3%2b%20crash)
 
 # MrCrayfish's Vehicle Mod
 
@@ -18,6 +19,7 @@ MrCrayfish's Vehicle Mod is about creating fun and useful vehicles. In this mod 
 * Bonus vehicles when installed with MrCrayfish's Furniture Mod
 * Most importantly traffic cones you can place on the ground or wear as a hat
 
-### Screenshots:
+### Screenshots (Outdated):
 ![Screenshot #1](https://i.imgur.com/2HYPM5o.png)
 ![Screenshot #1](https://i.imgur.com/XwtLs2F.png)
+

@@ -1,11 +1,14 @@
 package com.mrcrayfish.vehicle.common.entity;
 
 import com.mrcrayfish.framework_embedded.common.data.SyncedEntityData;
+import com.mrcrayfish.vehicle.VehicleMod;
+import com.mrcrayfish.vehicle.entity.VehicleEntity;
 import com.mrcrayfish.vehicle.init.ModDataKeys;
 import com.mrcrayfish.vehicle.network.PacketHandler;
 import com.mrcrayfish.vehicle.network.message.MessageSyncHeldVehicle;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,22 +29,20 @@ public class HeldVehicleDataHandler
 
     public static boolean isHoldingVehicle(Player player)
     {
-        return !SyncedEntityData.instance().get(player, ModDataKeys.HELD_VEHICLE).isEmpty();
+        return player.getFirstPassenger() instanceof VehicleEntity;
     }
 
-    public static CompoundTag getHeldVehicle(Player player)
+    public static VehicleEntity getHeldVehicle(Player player)
     {
-        return SyncedEntityData.instance().get(player, ModDataKeys.HELD_VEHICLE);
-    }
-
-    public static void setHeldVehicle(Player player, CompoundTag vehicleTag)
-    {
-        SyncedEntityData.instance().set(player, ModDataKeys.HELD_VEHICLE, vehicleTag);
-
-        if(!player.level.isClientSide)
-        {
-            PacketHandler.getPlayChannel().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> player), new MessageSyncHeldVehicle(player.getId(), vehicleTag));
+        if (player.getFirstPassenger() instanceof VehicleEntity vehicle) {
+            return vehicle;
         }
+        return null;
+    }
+
+    public static void setHeldVehicle(Player player, VehicleEntity vehicle)
+    {
+        vehicle.startRiding(player);
     }
 
     @SubscribeEvent
@@ -50,10 +51,10 @@ public class HeldVehicleDataHandler
         if(event.isWasDeath())
             return;
 
-        CompoundTag vehicleTag = getHeldVehicle(event.getOriginal());
-        if(!vehicleTag.isEmpty())
+        VehicleEntity vehicle = getHeldVehicle(event.getOriginal());
+        if(vehicle != null)
         {
-            setHeldVehicle(event.getPlayer(), vehicleTag);
+            setHeldVehicle(event.getPlayer(), vehicle);
         }
     }
 
@@ -62,8 +63,7 @@ public class HeldVehicleDataHandler
     {
         if(event.getTarget() instanceof Player player)
         {
-            CompoundTag vehicleTag = getHeldVehicle(player);
-            PacketHandler.getPlayChannel().send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()), new MessageSyncHeldVehicle(player.getId(), vehicleTag));
+            VehicleEntity vehicle = getHeldVehicle(player);
         }
     }
 
@@ -73,8 +73,7 @@ public class HeldVehicleDataHandler
         Entity entity = event.getEntity();
         if(entity instanceof Player player && !event.getWorld().isClientSide)
         {
-            CompoundTag vehicleTag = getHeldVehicle(player);
-            PacketHandler.getPlayChannel().send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new MessageSyncHeldVehicle(player.getId(), vehicleTag));
+            VehicleEntity vehicle = getHeldVehicle(player);
         }
     }
 }

@@ -305,7 +305,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Cont
 
         Entity controllingPassenger = this.getControllingPassenger();
 
-        /* If there driver, create particles */
+        /* If there's a driver, create particles */
         if(controllingPassenger != null)
         {
             this.createParticles();

@@ -176,10 +176,6 @@ public abstract class VehicleEntity extends Entity implements IEntityAdditionalS
     @NotNull
     public InteractionResult interact(@NotNull Player player, @NotNull InteractionHand hand)
     {
-        if(this.level.isClientSide || player.isCrouching())
-        {
-            return InteractionResult.SUCCESS;
-        }
 
         int trailerId = SyncedEntityData.instance().get(player, ModDataKeys.TRAILER);
         if(trailerId != -1)
@@ -278,7 +274,7 @@ public abstract class VehicleEntity extends Entity implements IEntityAdditionalS
             return InteractionResult.SUCCESS;
         }
 
-        return super.interact(player, hand);
+        return InteractionResult.FAIL;
     }
 
     @Override

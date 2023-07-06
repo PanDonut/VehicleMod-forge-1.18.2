@@ -79,11 +79,10 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.54'
 
-    implementation fg.deobf("curse.maven:posture-${project.posture_file}:${project.posture_project}")
+    implementation fg.deobf("curse.maven:posture-${project.posture_f}:${project.posture_project}")
     implementation fg.deobf("curse.maven:controllable-${project.controllable_file}:${project.controllable_project}")
     implementation fg.deobf("curse.maven:configured-${project.configured_file}:${project.configured_project}")
     implementation fg.deobf("curse.maven:catalogue-${project.catalogue_file}:${project.catalogue_project}")
-
     implementation ("org.spongepowered:mixin:0.8.5") {
         exclude module: "asm-commons"
         exclude module: "asm-tree"

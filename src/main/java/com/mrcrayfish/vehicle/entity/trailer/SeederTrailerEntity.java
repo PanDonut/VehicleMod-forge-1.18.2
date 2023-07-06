@@ -112,30 +112,12 @@ public class SeederTrailerEntity extends TrailerEntity implements IStorage
             if(seed.isEmpty() && this.getPullingEntity() instanceof StorageTrailerEntity)
             {
                 seed = this.getSeedFromStorage((StorageTrailerEntity) this.getPullingEntity());
-                {
-                    Entity _ent = this;
-                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
-                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = get from trailer"));
-                }
             }
             if(this.isSeed(seed))
             {
-                {
-                    Entity _ent = this;
-                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
-                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = true"));
-                }
                 Block seedBlock = ((BlockItem) seed.getItem()).getBlock();
                 this.level.setBlockAndUpdate(pos, seedBlock.defaultBlockState());
                 seed.shrink(1);
-            }
-            else
-            {
-                {
-                    Entity _ent = this;
-                    if (!_ent.level.isClientSide() && _ent.getServer() != null)
-                        _ent.getServer().getCommands().performCommand(_ent.createCommandSourceStack().withSuppressedOutput().withPermission(4), ("say isSeed = false / else"));
-                }
             }
         }
     }

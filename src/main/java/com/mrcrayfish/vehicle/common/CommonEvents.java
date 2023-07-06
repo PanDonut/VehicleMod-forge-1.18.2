@@ -160,16 +160,11 @@ public class CommonEvents
         // Removes the trailer before saving vehicle
         vehicle.setTrailer(null);
 
-        // Saves the vehicle to a compound tag
-        CompoundTag heldTag = new CompoundTag();
-        heldTag.putString("id", getEntityId(vehicle).toString());
-        vehicle.saveWithoutId(heldTag);
-
         // Updates the held vehicle capability
-        HeldVehicleDataHandler.setHeldVehicle(player, heldTag);
+        HeldVehicleDataHandler.setHeldVehicle(player, vehicle);
 
         // Removes the entity from the world
-        vehicle.remove(Entity.RemovalReason.DISCARDED);
+        // vehicle.remove(Entity.RemovalReason.DISCARDED); can't think of a better system right now *shrug*
 
         // Plays pick up sound
         player.level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.ENTITY_VEHICLE_PICK_UP.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
@@ -182,13 +177,8 @@ public class CommonEvents
         if(!(vehicle instanceof VehicleTrailerEntity))
             return false;
 
-        CompoundTag heldTag = HeldVehicleDataHandler.getHeldVehicle(player);
-        Optional<EntityType<?>> optional = EntityType.byString(heldTag.getString("id"));
-        if(!optional.isPresent())
-            return false;
-
-        EntityType<?> entityType = optional.get();
-        Entity entity = entityType.create(player.level);
+        VehicleEntity heldVehicle = HeldVehicleDataHandler.getHeldVehicle(player);
+        Entity entity = heldVehicle.getType().create(player.level);
         if(!(entity instanceof VehicleEntity))
             return false;
 
@@ -196,11 +186,11 @@ public class CommonEvents
             return false;
 
         // Loads the tag and moves the vehicle
-        entity.load(heldTag);
+        entity.stopRiding();
         entity.absMoveTo(vehicle.getX(), vehicle.getY() + vehicle.getPassengersRidingOffset(), vehicle.getZ(), vehicle.getYRot(), vehicle.getXRot());
 
         //Updates the player capability
-        HeldVehicleDataHandler.setHeldVehicle(player, new CompoundTag());
+        HeldVehicleDataHandler.setHeldVehicle(player, vehicle);
 
         //Plays place sound
         player.level.addFreshEntity(entity);
@@ -230,16 +220,11 @@ public class CommonEvents
                     {
                         if(jack.getJack() == null)
                         {
-                            CompoundTag tagCompound = HeldVehicleDataHandler.getHeldVehicle(player);
-                            EntityType.byString(tagCompound.getString("id")).ifPresent(entityType ->
-                            {
-                                Entity entity = entityType.create(world);
-                                if(entity instanceof VehicleEntity)
-                                {
-                                    entity.load(tagCompound);
+                            VehicleEntity vehicleTag = HeldVehicleDataHandler.getHeldVehicle(player);
+                            VehicleEntity entity = vehicleTag;
 
                                     //Updates the player capability
-                                    HeldVehicleDataHandler.setHeldVehicle(player, new CompoundTag());
+                                    vehicleTag.stopRiding();
 
                                     entity.fallDistance = 0.0F;
                                     entity.setYRot((player.getYHeadRot() + 90F) % 360.0F);
@@ -249,12 +234,9 @@ public class CommonEvents
                                     {
                                         EntityJack entityJack = jack.getJack();
                                         entityJack.rideTick();
-                                        entity.moveTo(entity.getX(), entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot());
+                                        entity.startRiding(entityJack);
                                     }
-                                    world.addFreshEntity(entity);
                                     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 1.0F, 1.0F);
-                                }
-                            });
                         }
                         event.setCanceled(true);
                         event.setCancellationResult(InteractionResult.SUCCESS);
@@ -273,36 +255,26 @@ public class CommonEvents
                         return;
                     }
 
-                    CompoundTag tagCompound = HeldVehicleDataHandler.getHeldVehicle(player);
-                    EntityType.byString(tagCompound.getString("id")).ifPresent(entityType ->
-                    {
-                        Entity entity = entityType.create(player.level);
-                        if(entity instanceof VehicleEntity)
-                        {
-                            entity.load(tagCompound);
-
+                    VehicleEntity vehicle = HeldVehicleDataHandler.getHeldVehicle(player);
+                        VehicleEntity entity = vehicle;
                             //Sets the positions and spawns the entity
                             float rotation = (player.getYHeadRot() + 90F) % 360.0F;
                             Vec3 heldOffset = ((VehicleEntity) entity).getProperties().getHeldOffset().yRot((float) Math.toRadians(-player.getYHeadRot()));
+                            //Updates the player capability
+                            entity.stopRiding();
 
-                            entity.absMoveTo(clickedVec.x + heldOffset.x * 0.0625D, clickedVec.y, clickedVec.z + heldOffset.z * 0.0625D, rotation, 0F);
+                            entity.setPos(clickedVec.x + heldOffset.x * 0.0625D, clickedVec.y, clickedVec.z + heldOffset.z * 0.0625D);
                             entity.fallDistance = 0.0F;
 
                             //Checks if vehicle intersects with any blocks
                             if(!world.noCollision(entity, entity.getBoundingBox().inflate(0, -0.1, 0)))
                                 return;
+                           
 
-                            //Updates the player capability
-                            HeldVehicleDataHandler.setHeldVehicle(player, new CompoundTag());
-
-                            //Plays place sound
-                            world.addFreshEntity(entity);
                             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 1.0F, 1.0F);
 
                             event.setCanceled(true);
                             event.setCancellationResult(InteractionResult.SUCCESS);
-                        }
-                    });
                 }
             }
         }
@@ -364,23 +336,13 @@ public class CommonEvents
 
     private void dropVehicle(Player player)
     {
-        CompoundTag tagCompound = HeldVehicleDataHandler.getHeldVehicle(player);
-        if(!tagCompound.isEmpty())
+        VehicleEntity vehicle = HeldVehicleDataHandler.getHeldVehicle(player);
+        if(vehicle != null)
         {
-            HeldVehicleDataHandler.setHeldVehicle(player, new CompoundTag());
-
-            EntityType.byString(tagCompound.getString("id")).ifPresent(entityType ->
-            {
-                Entity vehicle = entityType.create(player.level);
-                if(vehicle instanceof VehicleEntity)
-                {
-                    vehicle.load(tagCompound);
-                    float rotation = (player.getYHeadRot() + 90F) % 360.0F;
-                    Vec3 heldOffset = ((VehicleEntity) vehicle).getProperties().getHeldOffset().yRot((float) Math.toRadians(-player.getYHeadRot()));
-                    vehicle.absMoveTo(player.getX() + heldOffset.x * 0.0625D, player.getY() + player.getEyeHeight() + heldOffset.y * 0.0625D, player.getZ() + heldOffset.z * 0.0625D, rotation, 0F);
-                    player.level.addFreshEntity(vehicle);
-                }
-            });
+            vehicle.stopRiding();
+            float rotation = (player.getYHeadRot() + 90F) % 360.0F;
+            Vec3 heldOffset = ((VehicleEntity) vehicle).getProperties().getHeldOffset().yRot((float) Math.toRadians(-player.getYHeadRot()));
+            vehicle.absMoveTo(player.getX() + heldOffset.x * 0.0625D, player.getY() + player.getEyeHeight() + heldOffset.y * 0.0625D, player.getZ() + heldOffset.z * 0.0625D, rotation, 0F);
         }
     }
 
